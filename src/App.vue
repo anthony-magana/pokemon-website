@@ -2,7 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="HELLO WORLD!"/>
-    <card> </card>
+    <card :url="item.pokemon.url" v-for="item in pokemonOfDragonType" :key="item.pokemon.name"> </card>
+    
   </div>
 </template>
 
@@ -10,13 +11,35 @@
 import HelloWorld from './components/HelloWorld.vue'
 import card from './components/card.vue'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-    card
+  export default {
+    name: 'app',
+    components: {
+      HelloWorld,
+      card
+    },
+    data: function(){
+      return {
+        pokemonOfDragonType: ""
+      }
+    },
+    mounted: function() {
+      console.log("mounted function ran")
+
+      const axios = require('axios')
+      const vm = this;
+
+      axios({
+        method: 'get',
+        url: 'https://pokeapi.co/api/v2/type/dragon',
+        responseType: 'stream'
+      })
+      .then(function (response) {
+        console.log(response.data.pokemon);
+        vm.pokemonOfDragonType = response.data.pokemon
+      });
+    }
+        
   }
-}
 </script>
 
 <style>

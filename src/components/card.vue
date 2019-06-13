@@ -12,31 +12,32 @@
 
 <script>
     export default {
-    name: 'card',
-    data: function() {
-        return {
-            pokemon: ""
-        }
-    },
-    props: {
-        msg: String
-    },
-    mounted: function() {
-        console.log("mounted function ran")
+        name: 'card',
+        data: function() {
+            return {
+                pokemon: ""
+            }
+        },
+        props: {
+            url: String
+        },
+        mounted: function() {
+            console.log("mounted function ran")
 
-        const axios = require('axios')
-        const vm = this;
+            const axios = require('axios')
+            const vm = this;
 
-        axios({
-            method: 'get',
-            url: 'https://pokeapi.co/api/v2/pokemon/dragonite',
-            responseType: 'stream'
+            axios({
+                method: 'get',
+                url: vm.url,
+                responseType: 'stream'
             })
             .then(function (response) {
                 console.log(response.data);
                 vm.pokemon = response.data
             });
         }
+        
     }
 </script>
 
