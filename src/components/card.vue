@@ -1,13 +1,15 @@
 <template>
-  <div class="card" style="width: 18rem;">
-  <img :src="pokemon.sprites.front_default" class="card-img-top" alt="dragonite image">
-  <div class="card-body">
-    <h4 class="card-title">{{pokemon.name}}</h4>
-    <p class="poke-height">Height: {{pokemon.height *3.9}} inch</p>
-    <p class="poke-weight">Weight: {{pokemon.weight}} units</p>
-    <a href="#" class="btn btn-primary">Learn more</a>
-  </div>
-</div>
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <img :src="pokemon.sprites.front_default" class="card-img-top" alt="pokemon image">
+            <div class="card-body">
+                <h4 class="card-title text-capitalize">{{pokemon.name}}</h4>
+                <p class="poke-height">Height: {{pokemon.height *3.9}} inch</p>
+                <p class="poke-weight">Weight: {{pokemon.weight}} units</p>
+                <a href="#" class="btn btn-primary">Learn more</a>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -46,6 +48,16 @@
 
 p {
     font-size: 14px;
+}
+
+img.card-img-top {
+    height:286px;
+    width: 286px;
+}
+
+.card {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 a {

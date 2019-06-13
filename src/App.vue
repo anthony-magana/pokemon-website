@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="HELLO WORLD!"/>
-    <card :url="item.pokemon.url" v-for="item in pokemonOfDragonType" :key="item.pokemon.name"> </card>
-    
+    <div class="container">
+      <h1 class="text-center display-3 my-4">Dragon Type Pokemon</h1>
+      <div class="row">
+        <card :url="item.pokemon.url" v-for="item in pokemonOfDragonType" :key="item.pokemon.name"> </card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,12 +45,5 @@ import card from './components/card.vue'
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
