@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1 class="text-center display-3 my-4">Dragon Type Pokemon</h1>
+      <h1 class="text-center display-3 my-4 text-capitalize">{{activeType}} Type Pokemon</h1>
+      <span v-for="type in types" :key="type.name" class="btn btn-primary m-1 text-capitalize" v-on:click="somethingHappened(type.name)">
+        {{type.name}}
+      </span>
       <div class="row">
-        <card :url="item.pokemon.url" v-for="item in pokemonOfDragonType" :key="item.pokemon.name"> </card>
+        <card :url="item.pokemon.url" v-for="item in pokemonOfCurrentType" :key="item.pokemon.name"> </card>
       </div>
     </div>
   </div>
@@ -21,23 +24,47 @@ import card from './components/card.vue'
     },
     data: function(){
       return {
-        pokemonOfDragonType: ""
+        pokemonOfCurrentType: "",
+        types:"",
+        activeType: "dragon"
       }
     },
+    methods: {
+      somethingHappened: function(name) {
+        //console.log("something happened ")
+        this.activeType = name;
+        this.retrievePokemonOfSpecifiedType(this.activeType);
+      },
+      retrievePokemonOfSpecifiedType: function(type){
+        const axios = require('axios')
+        const vm = this;
+
+        axios({
+        method: 'get',
+        url: 'https://pokeapi.co/api/v2/type/' + this.activeType
+        })
+        .then(function (response) {
+          console.log(response.data.pokemon);
+          vm.pokemonOfCurrentType = response.data.pokemon
+        });
+      }
+    },
+
     mounted: function() {
       console.log("mounted function ran")
 
       const axios = require('axios')
       const vm = this;
 
+      this.retrievePokemonOfSpecifiedType(this.activeType);
+
       axios({
         method: 'get',
-        url: 'https://pokeapi.co/api/v2/type/dragon',
-        responseType: 'stream'
+        url: 'https://pokeapi.co/api/v2/type'
       })
       .then(function (response) {
-        console.log(response.data.pokemon);
-        vm.pokemonOfDragonType = response.data.pokemon
+        //console.log(response.data.results);
+        vm.types = response.data.results
       });
     }
         
