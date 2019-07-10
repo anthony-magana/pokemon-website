@@ -72,5 +72,9 @@ import card from './components/card.vue'
 </script>
 
 <style>
-
+@media (max-width: 770px){
+  .display-3{
+    font-size: 3.3rem;
+  }
+}
 </style>
