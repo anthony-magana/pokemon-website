@@ -1,5 +1,5 @@
 # pokemon-website
 
-This single page application is built with Vue.js framework and it has a card compenent which fetches the pokemon api for pokemon names, weight, and height with axios and displays the information in a card.
+Single page application built with Vue.js framework. Uses axios to fetch PokéAPIs RESTful api as its main source of data for all information displayed. Uses Javascript for displaying more Pokémon information when clicking learn more button.
 
-The navagation on top fetches the pokemon api for pokemon type which lets you toggle through the different pokemon types and displays that type of pokemon that you click. The learn more button uses JavaScript to display the pokemon's move list when it is clicked. 
+Navagation which fetches the api to display any pokemon type that you toggle through.
