@@ -23,4 +23,6 @@ Learn more button which displays the move list of each pokemon under the card vi
 
 4. Run `npm install` to install dependencies.
 
-5. Run `npm run dev` to start your local http server in browser.
+5. Run `npm run serve` to start your local http server in browser.
+
+6. Run `npm run build` to start production build of the project
