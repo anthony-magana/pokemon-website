@@ -1,5 +1,23 @@
-# pokemon-website
+# Pokemon-Website
 
-Single page application built with Vue.js framework. Uses axios to fetch PokéAPIs RESTful api as its main source of data for all information displayed. Uses Javascript for displaying more Pokémon information when clicking learn more button.
+[Website](https://pokemon-site.netlify.app/)
 
-Navagation which fetches the api to display any pokemon type that you toggle through.
+This Single page application is built with the Vue.js framework. It utilizes axios to fetch the RESTful Pokémon API, PokéAPI, as its main source of data for all of the information displayed.
+
+## Features
+
+Navigation to click and filter through pokemon by type. (default is dragon)
+Heading that displays the current pokemon type.
+Each pokemon is displayed in a card view which includes the image, name, height (in inches), weight (in units).
+Learn more button which displays the move list of each pokemon under the card view when pressed and hides the move list when pressed again.
+
+## Installation
+1. Run `npm install -g vue-cli` to install vue-cli globally. (must have node.js installed)
+
+2. clone repository
+
+3. cd to the project directory
+
+4. Run `npm install` to install dependencies.
+
+5. Run `npm run dev` to start your local http server in browser.
